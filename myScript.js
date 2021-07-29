@@ -5,3 +5,6 @@ sortingContainer.initialize();
 
 document.getElementById("sort-button").onclick = () =>
   sortingContainer.bubbleSort();
+
+document.getElementById("shuffle-button").onclick = () =>
+  sortingContainer.shuffle();

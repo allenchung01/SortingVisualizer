@@ -1,7 +1,9 @@
 #sorting-container {
-  background-color: red;
+  background-color: whitesmoke;
   display: inline-grid;
   margin-left: 50%;
+  padding: 20px;
+  border-radius: 20px;
   transform: translate(-50%, 0);
   height: 500px;
   align-items: end;
@@ -9,5 +11,20 @@
 }
 
 .bar {
-  background-color: blue;
+  background-color: #404040;
+  border-radius: 50vw 50vw 0 0;
+}
+
+.is-swapping {
+  background-color: rgb(255, 60, 154);
+}
+
+.is-traversing::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  background-color: pink;
+  width: 10px;
+  height: 10px;
+  transform: translate(0, -100%);
 }
