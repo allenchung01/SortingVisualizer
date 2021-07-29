@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
-#sorting-container {
-  background-color: blue;
+#sort-button {
+  display: inline-block;
+  color: blue;
 }

@@ -1,0 +1,13 @@
+#sorting-container {
+  background-color: red;
+  display: inline-grid;
+  margin-left: 50%;
+  transform: translate(-50%, 0);
+  height: 500px;
+  align-items: end;
+  gap: 5px;
+}
+
+.bar {
+  background-color: blue;
+}

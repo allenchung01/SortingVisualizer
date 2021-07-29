@@ -1,5 +1,5 @@
 // Returns a sorted version of the given array in ascending order.
-function bubbleSort(arr) {
+export default function bubbleSort(arr) {
   const _arr = arr.slice();
   let didSwap = false;
   do {
@@ -14,4 +14,4 @@ function bubbleSort(arr) {
   return _arr;
 }
 
-module.exports = bubbleSort;
+//module.exports = bubbleSort;
