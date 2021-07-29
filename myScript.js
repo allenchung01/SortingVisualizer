@@ -1,13 +1,4 @@
-let isTitleBlue = false;
+import SortingContainer from "./sorting_container/sortingContainer.js";
 
-function toggleTitle() {
-  isTitleBlue
-    ? (document.getElementById("main-title").style.color = "red")
-    : (document.getElementById("main-title").style.color = "blue");
-  isTitleBlue = !isTitleBlue;
-  console.log(isTitleBlue);
-}
-
-document.getElementById("main-title").style.color = "red";
-
-document.getElementById("main-title").onclick = toggleTitle;
+const sortingContainer = new SortingContainer();
+sortingContainer.display();
