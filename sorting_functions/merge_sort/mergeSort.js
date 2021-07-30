@@ -2,22 +2,27 @@
 // using merge sort. Executes callback functions
 // during traversal and swaps on the array. Time
 // determines the animation speed.
-function mergeSort(arr, onTraversal = () => {}, onSwap = () => {}, time = 0) {
-  _mergeSort(arr, 0, arr.length - 1, onTraversal, onSwap, time);
+export default async function mergeSort(
+  arr,
+  onTraversal = () => {},
+  onInsert = () => {},
+  time = 0
+) {
+  await _mergeSort(arr, 0, arr.length - 1, onTraversal, onInsert, time);
 }
 
-function _mergeSort(arr, l, r, onTraversal, onSwap, time) {
+async function _mergeSort(arr, l, r, onTraversal, onInsert, time) {
   if (l < r) {
     const m = Math.floor((l + r) / 2);
     // Sort left and right arrays.
-    _mergeSort(arr, l, m, onTraversal, onSwap, time);
-    _mergeSort(arr, m + 1, r, onTraversal, onSwap, time);
+    await _mergeSort(arr, l, m, onTraversal, onInsert, time);
+    await _mergeSort(arr, m + 1, r, onTraversal, onInsert, time);
     // Merge the two sorted arrays.
-    merge(arr, l, m, r, onTraversal, onSwap, time);
+    await merge(arr, l, m, r, onTraversal, onInsert, time);
   }
 }
 
-function merge(arr, l, m, r, onTraversal, onSwap, time) {
+async function merge(arr, l, m, r, onTraversal, onInsert, time) {
   let lSize = m - l + 1;
   let rSize = r - m;
   let L = new Array(lSize);
@@ -37,21 +42,34 @@ function merge(arr, l, m, r, onTraversal, onSwap, time) {
     if (L[i] <= R[j]) {
       arr[k] = L[i];
       i++;
+      onInsert(k, l + i);
     } else {
       arr[k] = R[j];
+      onInsert(k, m + 1 + j);
       j++;
     }
     k++;
+    await sleep(time);
   }
   // Copy remaining elements if there are any.
   for (i; i < lSize; i++) {
     arr[k] = L[i];
+    onInsert(k, l + i);
     k++;
+    await sleep(time);
   }
   for (j; j < rSize; j++) {
     arr[k] = R[j];
+    onInsert(k, m + 1 + j);
     k++;
+    await sleep(time);
   }
 }
 
-module.exports = mergeSort;
+function sleep(time) {
+  return new Promise((resolve, _) => {
+    setTimeout(resolve, time);
+  });
+}
+
+//module.exports = mergeSort;

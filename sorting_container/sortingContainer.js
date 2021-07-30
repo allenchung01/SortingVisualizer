@@ -1,5 +1,6 @@
 import bubbleSort from "../sorting_functions/bubble_sort/bubbleSort.js";
 import quickSort from "../sorting_functions/quick_sort/quickSort.js";
+import mergeSort from "../sorting_functions/merge_sort/mergeSort.js";
 
 const MAX_VALUE = 99;
 const NUM_BARS = 100;
@@ -64,6 +65,16 @@ SortingContainer.prototype.quickSort = function () {
   );
 };
 
+SortingContainer.prototype.mergeSort = function () {
+  const bars = document.getElementsByClassName("bar");
+  mergeSort(
+    this.values,
+    (i) => this.traverse(bars, i),
+    (i, j) => this.insert(bars, i, j),
+    5
+  );
+};
+
 // Perform UI updates when index i is swapped with index j.
 SortingContainer.prototype.swap = function (bars, i, j) {
   // Remove swap state from previous bars.
@@ -75,6 +86,23 @@ SortingContainer.prototype.swap = function (bars, i, j) {
   const temp = bars[i].style.height;
   bars[i].style.height = bars[j].style.height;
   bars[j].style.height = temp;
+  // Add swap state to bars.
+  bars[i].classList.add("is-swapping");
+  bars[j].classList.add("is-swapping");
+  this.prevSwapI = i;
+  this.prevSwapJ = j;
+};
+
+// Perform UI updates when inserting into index i during merge sort.
+SortingContainer.prototype.insert = function (bars, i, j) {
+  // Remove swap state from previous bars.
+  if (this.prevSwapI && this.prevSwapJ) {
+    bars[this.prevSwapI].classList.remove("is-swapping");
+    bars[this.prevSwapJ].classList.remove("is-swapping");
+  }
+  // Swap bars.
+  const percent = (this.values[i] / MAX_VALUE) * 100;
+  bars[i].style.height = `${percent}%`;
   // Add swap state to bars.
   bars[i].classList.add("is-swapping");
   bars[j].classList.add("is-swapping");

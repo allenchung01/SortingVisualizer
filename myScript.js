@@ -9,5 +9,8 @@ document.getElementById("bubblesort-button").onclick = () =>
 document.getElementById("quicksort-button").onclick = () =>
   sortingContainer.quickSort();
 
+document.getElementById("mergesort-button").onclick = () =>
+  sortingContainer.mergeSort();
+
 document.getElementById("shuffle-button").onclick = () =>
   sortingContainer.shuffle();

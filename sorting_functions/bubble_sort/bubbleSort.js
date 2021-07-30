@@ -2,7 +2,7 @@
 // using bubble sort. Executes callback functions
 // during traversal and swaps on the array. Time
 // determines the animation speed.
-/*export default */ async function bubbleSort(
+export default async function bubbleSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
@@ -34,4 +34,4 @@ function sleep(time) {
   });
 }
 
-module.exports = bubbleSort;
+//module.exports = bubbleSort;
