@@ -1,6 +1,8 @@
-// Returns a sorted version of the given array
-// in ascending order.
-export default async function bubbleSort(
+// Sorts the given array in ascending order
+// using bubble sort. Executes callback functions
+// during traversal and swaps on the array. Time
+// determines the animation speed.
+/*export default */ async function bubbleSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
@@ -32,4 +34,4 @@ function sleep(time) {
   });
 }
 
-//module.exports = bubbleSort;
+module.exports = bubbleSort;

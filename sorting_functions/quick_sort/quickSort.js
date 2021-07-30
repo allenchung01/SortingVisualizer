@@ -1,14 +1,14 @@
-// Sorts the given array in ascending order.
-// and executes functions during traversal
-// and swaps on the array. Time determines
-// animation speed.
-export default function quickSort(
+// Sorts the given array in ascending order
+// using quick sort. Executes callback functions
+// during traversal and swaps on the array. Time
+// determines the animation speed.
+/*export default*/ async function quickSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
   time = 0
 ) {
-  _quicksort(arr, 0, arr.length - 1, onTraversal, onSwap, time);
+  await _quicksort(arr, 0, arr.length - 1, onTraversal, onSwap, time);
 }
 
 async function _quicksort(arr, low, high, onTraversal, onSwap, time) {
@@ -44,4 +44,4 @@ function sleep(time) {
   });
 }
 
-//module.exports = quickSort;
+module.exports = quickSort;
