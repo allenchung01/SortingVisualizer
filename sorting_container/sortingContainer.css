@@ -1,18 +1,18 @@
 #sorting-container {
-  background-color: whitesmoke;
   display: inline-grid;
-  margin-left: 50%;
-  padding: 20px;
-  border-radius: 20px;
-  transform: translate(-50%, 0);
+  padding: 160px 20px 10px 20px;
   height: 500px;
   align-items: end;
-  gap: 5px;
+  gap: 7px;
 }
 
 .bar {
   background-color: #404040;
-  border-radius: 50vw 50vw 0 0;
+  border-radius: 25vw 25vw 0 0;
+}
+
+.bar:hover {
+  background-color: lightblue;
 }
 
 .is-swapping {

@@ -11,9 +11,55 @@
   src: url("./fonts/Jost-Regular.ttf");
 }
 
+body {
+  background-color: rgb(246, 246, 246);
+}
+
+h1 {
+  font-size: 32pt;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 16px;
+  white-space: nowrap;
+  font-size: 9pt;
+  background-color: rgb(246, 246, 246);
+}
+
+button:hover {
+  background-color: rgb(232, 232, 232);
+}
+
 #header {
-  margin: 20px;
-  text-align: center;
+  margin: 40px;
+  text-align: left;
+}
+
+#sorting-content {
+  display: flex;
+  margin: 0px 40px 0px 40px;
+}
+
+#sorting-content > * {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px 4px rgb(0, 0, 0, 0.025);
+}
+
+#sorting-content > *:not(:last-child) {
+  margin-right: 20px;
+}
+
+#sorting-options {
+  display: flex;
+  flex-direction: column;
+}
+
+#sorting-options > *:not(:last-child) {
+  margin-bottom: 10px;
 }
 
 #bubblesort-button {

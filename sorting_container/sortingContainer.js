@@ -5,7 +5,7 @@ import insertionSort from "../sorting_functions/insertion_sort/insertionSort.js"
 import selectionSort from "../sorting_functions/selection_sort/selectionSort.js";
 
 const MAX_VALUE = 99;
-const NUM_BARS = 100;
+const NUM_BARS = 80;
 const BAR_WIDTH = 5;
 
 export default function SortingContainer() {
