@@ -1,3 +1,7 @@
+// Sorts the given array in ascending order
+// using insertion sort. Executes callback functions
+// during traversal and swaps on the array. Time
+// determines the animation speed.
 export default async function insertionSort(
   arr,
   onTraversal = () => {},
