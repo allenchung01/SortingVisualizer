@@ -2,7 +2,7 @@
 // using quick sort. Executes callback functions
 // during traversal and swaps on the array. Time
 // determines the animation speed.
-export default async function quickSort(
+/*export default*/ async function quickSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
@@ -44,4 +44,4 @@ function sleep(time) {
   });
 }
 
-//module.exports = quickSort;
+module.exports = quickSort;

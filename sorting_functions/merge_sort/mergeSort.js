@@ -2,7 +2,7 @@
 // using merge sort. Executes callback functions
 // during traversal and swaps on the array. Time
 // determines the animation speed.
-export default async function mergeSort(
+/*export default*/ async function mergeSort(
   arr,
   onTraversal = () => {},
   onInsert = () => {},
@@ -72,4 +72,4 @@ function sleep(time) {
   });
 }
 
-//module.exports = mergeSort;
+module.exports = mergeSort;
