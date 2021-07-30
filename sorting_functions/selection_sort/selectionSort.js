@@ -1,6 +1,4 @@
-const { traverse } = require("@babel/types");
-
-/*export default */ async function selectionSort(
+export default async function selectionSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
@@ -31,4 +29,4 @@ function sleep(time) {
   });
 }
 
-module.exports = selectionSort;
+//module.exports = selectionSort;

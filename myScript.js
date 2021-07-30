@@ -15,5 +15,8 @@ document.getElementById("mergesort-button").onclick = () =>
 document.getElementById("insertionsort-button").onclick = () =>
   sortingContainer.insertionSort();
 
+document.getElementById("selectionsort-button").onclick = () =>
+  sortingContainer.selectionSort();
+
 document.getElementById("shuffle-button").onclick = () =>
   sortingContainer.shuffle();
