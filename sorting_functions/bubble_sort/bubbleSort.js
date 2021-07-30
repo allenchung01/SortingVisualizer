@@ -1,7 +1,6 @@
 // Returns a sorted version of the given array
-// in ascending order along with a swap history
-// of swapped indexes.
-/*export default*/ async function bubbleSort(
+// in ascending order.
+export default async function bubbleSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
@@ -33,4 +32,4 @@ function sleep(time) {
   });
 }
 
-module.exports = bubbleSort;
+//module.exports = bubbleSort;

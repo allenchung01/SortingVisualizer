@@ -1,4 +1,5 @@
-import bubbleSort from "../sorting_functions/bubbleSort.js";
+import bubbleSort from "../sorting_functions/bubble_sort/bubbleSort.js";
+import quickSort from "../sorting_functions/quick_sort/quickSort.js";
 
 const MAX_VALUE = 99;
 const NUM_BARS = 100;
@@ -53,6 +54,17 @@ SortingContainer.prototype.bubbleSort = function () {
   );
 };
 
+SortingContainer.prototype.quickSort = function () {
+  const bars = document.getElementsByClassName("bar");
+  quickSort(
+    this.values,
+    (i) => this.traverse(bars, i),
+    (i, j) => this.swap(bars, i, j),
+    5
+  );
+};
+
+// Perform UI updates when index i is swapped with index j.
 SortingContainer.prototype.swap = function (bars, i, j) {
   // Remove swap state from previous bars.
   if (this.prevSwapI && this.prevSwapJ) {
@@ -70,6 +82,7 @@ SortingContainer.prototype.swap = function (bars, i, j) {
   this.prevSwapJ = j;
 };
 
+// Perform UI updates as index i updates while traversing the array.
 SortingContainer.prototype.traverse = function (bars, i) {
   // Remove traverse state from previous bar.
   if (this.prevTraverse) {
