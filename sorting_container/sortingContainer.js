@@ -1,6 +1,7 @@
 import bubbleSort from "../sorting_functions/bubble_sort/bubbleSort.js";
 import quickSort from "../sorting_functions/quick_sort/quickSort.js";
 import mergeSort from "../sorting_functions/merge_sort/mergeSort.js";
+import insertionSort from "../sorting_functions/insertion_sort/insertionSort.js";
 
 const MAX_VALUE = 99;
 const NUM_BARS = 100;
@@ -71,6 +72,16 @@ SortingContainer.prototype.mergeSort = function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.insert(bars, i, j),
+    5
+  );
+};
+
+SortingContainer.prototype.insertionSort = function () {
+  const bars = document.getElementsByClassName("bar");
+  insertionSort(
+    this.values,
+    (i) => this.traverse(bars, i),
+    (i, j) => this.swap(bars, i, j),
     5
   );
 };
