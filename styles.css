@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   color: #404040;
-  font-family: Jost;
+  font-family: Montserrat-Thin;
 }
 
 @font-face {
@@ -11,12 +11,17 @@
   src: url("./fonts/Jost-Regular.ttf");
 }
 
+@font-face {
+  font-family: Montserrat-Thin;
+  src: url("./fonts/Montserrat-Thin.ttf");
+}
+
 body {
   background-color: rgb(246, 246, 246);
 }
 
 h1 {
-  font-size: 32pt;
+  font-size: 20pt;
 }
 
 button {
@@ -33,8 +38,12 @@ button:hover {
 }
 
 #header {
-  margin: 40px;
+  background-color: rgb(173, 216, 230, 0.5);
+  padding: 20px;
+  position: relative;
+  margin: 40px 0 40px 20px;
   text-align: left;
+  z-index: 1;
 }
 
 #sorting-content {
@@ -43,8 +52,8 @@ button:hover {
 }
 
 #sorting-content > * {
-  background-color: white;
-  border-radius: 8px;
+  /*background-color: white;*/
+  /*border-radius: 8px;*/
   padding: 20px;
   box-shadow: 0px 4px 8px 4px rgb(0, 0, 0, 0.025);
 }

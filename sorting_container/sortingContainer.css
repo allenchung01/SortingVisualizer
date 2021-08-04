@@ -1,18 +1,29 @@
 #sorting-container {
+  position: relative;
   display: inline-grid;
-  padding: 160px 20px 10px 20px;
+  padding: 160px 80px 20px 20px;
   height: 500px;
   align-items: end;
-  gap: 7px;
+  gap: 0px;
+  background-color: white;
+}
+
+#sorting-container::before {
+  position: absolute;
+  bottom: 100%;
+  content: "";
+  background-color: white;
+  height: 200px;
+  width: 100%;
 }
 
 .bar {
   background-color: #404040;
-  border-radius: 25vw 25vw 0 0;
+  position: relative;
 }
 
 .bar:hover {
-  background-color: lightblue;
+  border: 1px solid rgb(72, 231, 255);
 }
 
 .is-swapping {
@@ -27,4 +38,26 @@
   width: 10px;
   height: 10px;
   transform: translate(0, -100%);
+}
+
+.height-indicator {
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.height-indicator::after {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 0);
+  content: "";
+  height: 117px;
+  width: 1px;
+  background-color: rgb(72, 231, 255);
 }

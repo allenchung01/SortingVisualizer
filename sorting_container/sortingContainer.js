@@ -5,8 +5,8 @@ import insertionSort from "../sorting_functions/insertion_sort/insertionSort.js"
 import selectionSort from "../sorting_functions/selection_sort/selectionSort.js";
 
 const MAX_VALUE = 99;
-const NUM_BARS = 80;
-const BAR_WIDTH = 5;
+const NUM_BARS = 600;
+const BAR_WIDTH = 1;
 
 export default function SortingContainer() {
   // Initialize values to random numbers.
@@ -33,8 +33,23 @@ SortingContainer.prototype.initialize = function () {
     const percent = (value / MAX_VALUE) * 100;
     bar.className = "bar";
     bar.style.height = `${percent}%`;
+    bar.style.backgroundColor = bar.onmouseenter = this.displayHeightIndicator;
+    bar.onmouseleave = this.removeHeightIndicator;
     sortingContainer.appendChild(bar);
   }
+};
+
+SortingContainer.prototype.displayHeightIndicator = function () {
+  const heightIndicator = document.createElement("div");
+  heightIndicator.className = "height-indicator";
+  heightIndicator.innerHTML = this.style.height;
+  console.log(this);
+  this.appendChild(heightIndicator);
+};
+
+SortingContainer.prototype.removeHeightIndicator = function () {
+  const heightIndicator = this.getElementsByClassName("height-indicator");
+  heightIndicator[0].remove();
 };
 
 SortingContainer.prototype.shuffle = function () {
@@ -63,7 +78,7 @@ SortingContainer.prototype.quickSort = function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
-    5
+    1
   );
 };
 
