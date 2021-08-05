@@ -62,3 +62,11 @@
   width: 1px;
   background-color: rgb(72, 231, 255);
 }
+
+.button-disabled {
+  color: whitesmoke;
+}
+
+.button-disabled:hover {
+  color: whitesmoke;
+}

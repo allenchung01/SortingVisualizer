@@ -26,12 +26,18 @@
   src: url("./fonts/Montserrat-Regular.ttf");
 }
 
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url("./fonts/Montserrat-SemiBold.ttf");
+}
+
 body {
   background-color: rgb(249, 249, 249);
 }
 
 h1 {
-  font-size: 14pt;
+  font-family: Montserrat-SemiBold;
+  font-size: 12pt;
 }
 
 h2 {
@@ -71,9 +77,8 @@ button:hover {
   display: flex;
   justify-content: space-between;
   padding: 40px;
-  align-items: center;
+  align-items: baseline;
   position: relative;
-  text-align: left;
   z-index: 1;
 }
 

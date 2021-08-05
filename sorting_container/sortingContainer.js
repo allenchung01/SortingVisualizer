@@ -13,7 +13,7 @@ export default function SortingContainer() {
   this.values = Array(NUM_BARS)
     .fill()
     .map(() => {
-      return Math.floor(Math.random() * MAX_VALUE);
+      return Math.floor(Math.random() * MAX_VALUE + 20);
     });
   this.prevSwapI = null;
   this.prevSwapJ = null;
@@ -72,14 +72,25 @@ SortingContainer.prototype.bubbleSort = function () {
   );
 };
 
-SortingContainer.prototype.quickSort = function () {
+SortingContainer.prototype.quickSort = async function () {
   const bars = document.getElementsByClassName("bar");
-  quickSort(
+  const buttons = document.getElementsByClassName("sorting-button");
+  for (const b of buttons) {
+    b.disabled = true;
+    if (!(b.id == "quicksort-button")) {
+      b.classList.add("button-disabled");
+    }
+  }
+  await quickSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
     1
   );
+  for (const b of buttons) {
+    b.disabled = false;
+    b.classList.remove("button-disabled");
+  }
 };
 
 SortingContainer.prototype.mergeSort = function () {
