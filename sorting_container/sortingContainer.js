@@ -55,7 +55,7 @@ SortingContainer.prototype.shuffle = function () {
   const bars = document.getElementsByClassName("bar");
   // Randomize values and update bars.
   for (let i in this.values) {
-    this.values[i] = Math.floor(Math.random() * MAX_VALUE);
+    this.values[i] = Math.floor(Math.random() * MAX_VALUE) + 20;
     const percent = (this.values[i] / MAX_VALUE) * 100;
     bars[i].style.height = `${percent}%`;
   }
