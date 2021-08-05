@@ -29,9 +29,11 @@ async function merge(arr, l, m, r, onTraversal, onInsert, time) {
   let R = new Array(rSize);
   // Copy values into left and right arrays.
   for (let i = 0; i < lSize; i++) {
+    onTraversal(l + i);
     L[i] = arr[l + i];
   }
   for (let i = 0; i < rSize; i++) {
+    onTraversal(m + 1 + i);
     R[i] = arr[m + 1 + i];
   }
   // Merge arrays back into original array.

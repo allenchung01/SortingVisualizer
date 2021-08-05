@@ -43,7 +43,6 @@ SortingContainer.prototype.displayHeightIndicator = function () {
   const heightIndicator = document.createElement("div");
   heightIndicator.className = "height-indicator";
   heightIndicator.innerHTML = this.style.height;
-  console.log(this);
   this.appendChild(heightIndicator);
 };
 
@@ -116,7 +115,7 @@ SortingContainer.prototype.selectionSort = function () {
 // Perform UI updates when index i is swapped with index j.
 SortingContainer.prototype.swap = function (bars, i, j) {
   // Remove swap state from previous bars.
-  if (this.prevSwapI && this.prevSwapJ) {
+  if (this.prevSwapI != null && this.prevSwapJ != null) {
     bars[this.prevSwapI].classList.remove("is-swapping");
     bars[this.prevSwapJ].classList.remove("is-swapping");
   }
@@ -139,7 +138,7 @@ SortingContainer.prototype.swap = function (bars, i, j) {
 // Perform UI updates when inserting into index i during merge sort.
 SortingContainer.prototype.insert = function (bars, i, j) {
   // Remove swap state from previous bars.
-  if (this.prevSwapI && this.prevSwapJ) {
+  if (this.prevSwapI != null && this.prevSwapJ != null) {
     bars[this.prevSwapI].classList.remove("is-swapping");
     bars[this.prevSwapJ].classList.remove("is-swapping");
   }
@@ -151,12 +150,17 @@ SortingContainer.prototype.insert = function (bars, i, j) {
   bars[j].classList.add("is-swapping");
   this.prevSwapI = i;
   this.prevSwapJ = j;
+  // Update stats.
+  const barsSwappedElement = document.getElementById("bars-swapped");
+  let barsSwapped = barsSwappedElement.innerText;
+  barsSwapped++;
+  barsSwappedElement.innerText = barsSwapped;
 };
 
 // Perform UI updates as index i updates while traversing the array.
 SortingContainer.prototype.traverse = function (bars, i) {
   // Remove traverse state from previous bar.
-  if (this.prevTraverse) {
+  if (this.prevTraverse != null) {
     bars[this.prevTraverse].classList.remove("is-traversing");
   }
   // Add traverse state to bar.

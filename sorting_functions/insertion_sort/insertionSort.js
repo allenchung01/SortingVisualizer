@@ -13,6 +13,7 @@ export default async function insertionSort(
     let j = i;
     // Swap element until everything before it is smaller.
     while (j > 0 && arr[j] < arr[j - 1]) {
+      onTraversal(j);
       [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
       onSwap(j, j - 1);
       j--;

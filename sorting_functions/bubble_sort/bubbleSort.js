@@ -12,6 +12,7 @@ export default async function bubbleSort(
   let didSwap = false;
   do {
     for (let i = 0; i < _arr.length - 1; i++) {
+      onTraversal(i);
       didSwap = false;
       for (let j = 0; j < _arr.length - 1 - i; j++) {
         onTraversal(j);
