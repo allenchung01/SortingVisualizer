@@ -41,6 +41,7 @@ h1 {
 }
 
 h2 {
+  font-family: Montserrat-SemiBold;
   font-size: 12pt;
 }
 
@@ -64,13 +65,31 @@ button {
   border: none;
   padding: 16px;
   white-space: nowrap;
-  font-size: 8pt;
-  background-color: white;
+  font-size: 6pt;
+  font-family: Montserrat-SemiBold;
+  color: white;
+  background-color: #32c1fe;
   text-align: left;
+  box-shadow: 0px 4px 8px 4px rgb(0, 0, 0, 0.025);
 }
 
 button:hover {
-  color: rgb(255, 60, 154);
+  animation-name: buttonHover;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+button:active {
+  color: #32c1fe;
+}
+
+@keyframes buttonHover {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 110%;
+  }
 }
 
 #header {
@@ -137,7 +156,6 @@ button:hover {
 }
 
 #sorting-stats {
-  width: 200px;
 }
 
 #sorting-stats h2 {

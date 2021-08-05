@@ -61,15 +61,25 @@ SortingContainer.prototype.shuffle = function () {
   }
 };
 
-SortingContainer.prototype.bubbleSort = function () {
+SortingContainer.prototype.bubbleSort = async function () {
   const bars = document.getElementsByClassName("bar");
-  const _this = this;
-  bubbleSort(
+  const buttons = document.getElementsByClassName("sorting-button");
+  for (const b of buttons) {
+    b.disabled = true;
+    if (!(b.id == "bubblesort-button")) {
+      b.classList.add("button-disabled");
+    }
+  }
+  await bubbleSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
     1
   );
+  for (const b of buttons) {
+    b.disabled = false;
+    b.classList.remove("button-disabled");
+  }
 };
 
 SortingContainer.prototype.quickSort = async function () {
@@ -93,34 +103,67 @@ SortingContainer.prototype.quickSort = async function () {
   }
 };
 
-SortingContainer.prototype.mergeSort = function () {
+SortingContainer.prototype.mergeSort = async function () {
   const bars = document.getElementsByClassName("bar");
-  mergeSort(
+  const buttons = document.getElementsByClassName("sorting-button");
+  for (const b of buttons) {
+    b.disabled = true;
+    if (!(b.id == "mergesort-button")) {
+      b.classList.add("button-disabled");
+    }
+  }
+  await mergeSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.insert(bars, i, j),
     5
   );
+  for (const b of buttons) {
+    b.disabled = false;
+    b.classList.remove("button-disabled");
+  }
 };
 
-SortingContainer.prototype.insertionSort = function () {
+SortingContainer.prototype.insertionSort = async function () {
   const bars = document.getElementsByClassName("bar");
-  insertionSort(
+  const buttons = document.getElementsByClassName("sorting-button");
+  for (const b of buttons) {
+    b.disabled = true;
+    if (!(b.id == "insertionsort-button")) {
+      b.classList.add("button-disabled");
+    }
+  }
+  await insertionSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
     5
   );
+  for (const b of buttons) {
+    b.disabled = false;
+    b.classList.remove("button-disabled");
+  }
 };
 
-SortingContainer.prototype.selectionSort = function () {
+SortingContainer.prototype.selectionSort = async function () {
   const bars = document.getElementsByClassName("bar");
-  selectionSort(
+  const buttons = document.getElementsByClassName("sorting-button");
+  for (const b of buttons) {
+    b.disabled = true;
+    if (!(b.id == "selectionsort-button")) {
+      b.classList.add("button-disabled");
+    }
+  }
+  await selectionSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
     5
   );
+  for (const b of buttons) {
+    b.disabled = false;
+    b.classList.remove("button-disabled");
+  }
 };
 
 // Perform UI updates when index i is swapped with index j.
