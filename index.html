@@ -7,19 +7,28 @@
   </head>
   <body>
     <div id="header">
+      <img id="sorting-icon" src="./images/bar-chart.svg"></img>
       <h1 id="main-title" href="#">Sorting Visualizer</h1>
     </div>
     <div id="sorting-content">
+      <div id="sorting-stats">
+        <h2>Stats</h2>
+        <h3>Bars Traversed</h3>
+        <p id="bars-traversed">0</p>
+        <h3>Bars Swapped</h3>
+        <p id="bars-swapped">0</p>
+      </div>
       <div id="sorting-container"></div>
       <div id="sorting-options">
-        <button id="bubblesort-button">Bubble Sort</button>
-        <button id="quicksort-button">Quick Sort</button>
-        <button id="mergesort-button">Merge Sort</button>
-        <button id="insertionsort-button">Insertion Sort</button>
-        <button id="selectionsort-button">Selection Sort</button>
+        <button id="bubblesort-button">Bubble</button>
+        <button id="quicksort-button">Quick</button>
+        <button id="mergesort-button">Merge</button>
+        <button id="insertionsort-button">Insertion</button>
+        <button id="selectionsort-button">Selection</button>
         <button id="shuffle-button">Shuffle</button>
       </div>
     </div>
+    <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
   </body>
   <script type="module" src="myScript.js"></script>
 </html>

@@ -64,12 +64,40 @@ SortingContainer.prototype.shuffle = function () {
 
 SortingContainer.prototype.bubbleSort = function () {
   const bars = document.getElementsByClassName("bar");
-  bubbleSort(
+  const _this = this;
+
+  if (window.Worker) {
+    const worker = new Worker(
+      "../sorting_functions/bubble_sort/bubbleSort.js",
+      { type: "module" }
+    );
+    worker.onmessage = function (e) {
+      switch (e.data.str) {
+        case "traverse":
+          _this.traverse.call(_this, bars, e.data.index);
+          break;
+        case "swap":
+          _this.swap.call(_this, bars, e.data.index1, e.data.index2);
+          break;
+        default:
+          break;
+      }
+    };
+    worker.postMessage({
+      str: "run",
+      params: {
+        arr: this.values,
+        time: 1,
+      },
+    });
+  }
+
+  /*bubbleSort(
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
-    5
-  );
+    1
+  );*/
 };
 
 SortingContainer.prototype.quickSort = function () {
@@ -128,6 +156,11 @@ SortingContainer.prototype.swap = function (bars, i, j) {
   bars[j].classList.add("is-swapping");
   this.prevSwapI = i;
   this.prevSwapJ = j;
+  // Update stats.
+  const barsSwappedElement = document.getElementById("bars-swapped");
+  let barsSwapped = barsSwappedElement.innerText;
+  barsSwapped++;
+  barsSwappedElement.innerText = barsSwapped;
 };
 
 // Perform UI updates when inserting into index i during merge sort.
@@ -156,4 +189,9 @@ SortingContainer.prototype.traverse = function (bars, i) {
   // Add traverse state to bar.
   bars[i].classList.add("is-traversing");
   this.prevTraverse = i;
+  // Update stats.
+  const barsTraversedElement = document.getElementById("bars-traversed");
+  let barsTraversed = barsTraversedElement.innerText;
+  barsTraversed++;
+  barsTraversedElement.innerText = barsTraversed;
 };

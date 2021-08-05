@@ -1,13 +1,13 @@
 #sorting-container {
   position: relative;
   display: inline-grid;
-  padding: 160px 80px 20px 20px;
-  height: 500px;
+  padding: 240px 40px 40px 40px;
+  /*height: 500px;*/
   align-items: end;
   gap: 0px;
   background-color: white;
 }
-
+/*
 #sorting-container::before {
   position: absolute;
   bottom: 100%;
@@ -16,7 +16,7 @@
   height: 200px;
   width: 100%;
 }
-
+*/
 .bar {
   background-color: #404040;
   position: relative;
