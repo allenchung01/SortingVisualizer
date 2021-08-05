@@ -108,6 +108,7 @@ button:hover {
   background-color: white;
 }
 
+/*
 #sorting-options::before {
   position: absolute;
   bottom: 100%;
@@ -117,6 +118,7 @@ button:hover {
   margin-bottom: 14px;
   content: "Sorting Methods";
 }
+*/
 
 #sorting-options > *:not(:last-child) {
   margin-bottom: 10px;
