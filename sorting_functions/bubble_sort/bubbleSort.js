@@ -6,11 +6,15 @@ export default async function bubbleSort(
   arr,
   onTraversal = () => {},
   onSwap = () => {},
-  time = 0
+  time = 0,
+  state = { cancel: false }
 ) {
   const _arr = arr.slice();
   let didSwap = false;
   do {
+    if (state.cancel) {
+      return;
+    }
     for (let i = 0; i < _arr.length - 1; i++) {
       onTraversal(i);
       didSwap = false;

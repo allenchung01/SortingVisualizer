@@ -5,8 +5,8 @@ import insertionSort from "../sorting_functions/insertion_sort/insertionSort.js"
 import selectionSort from "../sorting_functions/selection_sort/selectionSort.js";
 
 const MAX_VALUE = 99;
-const NUM_BARS = 600;
-const BAR_WIDTH = 1;
+const NUM_BARS = 260;
+const BAR_WIDTH = 2;
 
 export default function SortingContainer() {
   // Initialize values to random numbers.
@@ -18,6 +18,7 @@ export default function SortingContainer() {
   this.prevSwapI = null;
   this.prevSwapJ = null;
   this.prevTraverse = null;
+  this.isSorted = false;
 }
 
 SortingContainer.prototype.initialize = function () {
@@ -62,6 +63,12 @@ SortingContainer.prototype.shuffle = function () {
 };
 
 SortingContainer.prototype.bubbleSort = async function () {
+  if (this.isSorted) {
+    this.shuffle();
+    this.isSorted = false;
+    document.getElementById("bars-swapped").innerText = 0;
+    document.getElementById("bars-traversed").innerText = 0;
+  }
   const bars = document.getElementsByClassName("bar");
   const buttons = document.getElementsByClassName("sorting-button");
   for (const b of buttons) {
@@ -74,15 +81,25 @@ SortingContainer.prototype.bubbleSort = async function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
-    1
+    1,
+    this.state
   );
   for (const b of buttons) {
     b.disabled = false;
     b.classList.remove("button-disabled");
   }
+  this.isSorted = true;
 };
 
+SortingContainer.prototype.stopSorting = function () {};
+
 SortingContainer.prototype.quickSort = async function () {
+  if (this.isSorted) {
+    this.shuffle();
+    this.isSorted = false;
+    document.getElementById("bars-swapped").innerText = 0;
+    document.getElementById("bars-traversed").innerText = 0;
+  }
   const bars = document.getElementsByClassName("bar");
   const buttons = document.getElementsByClassName("sorting-button");
   for (const b of buttons) {
@@ -101,9 +118,16 @@ SortingContainer.prototype.quickSort = async function () {
     b.disabled = false;
     b.classList.remove("button-disabled");
   }
+  this.isSorted = true;
 };
 
 SortingContainer.prototype.mergeSort = async function () {
+  if (this.isSorted) {
+    this.shuffle();
+    this.isSorted = false;
+    document.getElementById("bars-swapped").innerText = 0;
+    document.getElementById("bars-traversed").innerText = 0;
+  }
   const bars = document.getElementsByClassName("bar");
   const buttons = document.getElementsByClassName("sorting-button");
   for (const b of buttons) {
@@ -116,15 +140,22 @@ SortingContainer.prototype.mergeSort = async function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.insert(bars, i, j),
-    5
+    1
   );
   for (const b of buttons) {
     b.disabled = false;
     b.classList.remove("button-disabled");
   }
+  this.isSorted = true;
 };
 
 SortingContainer.prototype.insertionSort = async function () {
+  if (this.isSorted) {
+    this.shuffle();
+    this.isSorted = false;
+    document.getElementById("bars-swapped").innerText = 0;
+    document.getElementById("bars-traversed").innerText = 0;
+  }
   const bars = document.getElementsByClassName("bar");
   const buttons = document.getElementsByClassName("sorting-button");
   for (const b of buttons) {
@@ -137,15 +168,22 @@ SortingContainer.prototype.insertionSort = async function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
-    5
+    1
   );
   for (const b of buttons) {
     b.disabled = false;
     b.classList.remove("button-disabled");
   }
+  this.isSorted = true;
 };
 
 SortingContainer.prototype.selectionSort = async function () {
+  if (this.isSorted) {
+    this.shuffle();
+    this.isSorted = false;
+    document.getElementById("bars-swapped").innerText = 0;
+    document.getElementById("bars-traversed").innerText = 0;
+  }
   const bars = document.getElementsByClassName("bar");
   const buttons = document.getElementsByClassName("sorting-button");
   for (const b of buttons) {
@@ -158,12 +196,13 @@ SortingContainer.prototype.selectionSort = async function () {
     this.values,
     (i) => this.traverse(bars, i),
     (i, j) => this.swap(bars, i, j),
-    5
+    1
   );
   for (const b of buttons) {
     b.disabled = false;
     b.classList.remove("button-disabled");
   }
+  this.isSorted = true;
 };
 
 // Perform UI updates when index i is swapped with index j.
