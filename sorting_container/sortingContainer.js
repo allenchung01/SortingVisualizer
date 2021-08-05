@@ -60,6 +60,7 @@ SortingContainer.prototype.shuffle = function () {
     const percent = (this.values[i] / MAX_VALUE) * 100;
     bars[i].style.height = `${percent}%`;
   }
+  this.isSorted = false;
 };
 
 SortingContainer.prototype.bubbleSort = async function () {
