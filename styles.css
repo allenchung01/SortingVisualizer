@@ -198,3 +198,15 @@ button:active {
   width: 20px;
   height: 20px;
 }
+
+#github-button {
+  font-family: Montserrat-SemiBold;
+  font-size: 1;
+  font-size: 10pt;
+  text-decoration: none;
+  color: #404040;
+}
+#github-button:hover {
+  animation-name: none;
+  color: lightblue;
+}
