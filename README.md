@@ -1,6 +1,6 @@
 # Sorting Visualizer
 
-[🔗 Live Demo](https://allenchung01.github.io/SortingVisualizer/)!
+[🔗 Live Demo](https://allenchung01.github.io/sorting-visualizer/)!
 
 ![Sorting Demo GIF](./SortingPreview.png)
 
